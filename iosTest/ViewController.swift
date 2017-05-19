@@ -35,6 +35,10 @@ class ViewController: UIViewController {
             let session = URLSession.shared
             
             let request = NSMutableURLRequest(url: url! as URL)
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
             request.httpMethod = "POST"
             
             //let paramString = username.text

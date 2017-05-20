@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             let request = NSMutableURLRequest(url: url! as URL)
             
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
             
             request.httpMethod = "POST"
             
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
             let parameters = ["username": username.text, "password": password.text] as! Dictionary<String, String>
 
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: []) // pass dictionary to nsdata object and set it as request body
                 
             } catch let error {
                 print(error.localizedDescription)
